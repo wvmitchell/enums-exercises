@@ -6,59 +6,65 @@ class AreTheyAllTest < Minitest::Test
 
   def test_not_all_zeros
     numbers = [0, 0, 0, 0, 1, 0, 0, 0]
-    all_zeros = true
-    numbers.each do |number|
-      # write code here
+    all_zeros = numbers.all? do |num|
+      num == 0
     end
     refute all_zeros
   end
 
   def test_all_zeros
-    skip
     numbers = [0, 0, 0, 0, 0, 0, 0, 0]
-    # write code here
+    all_zeros = numbers.all? do |num|
+      num == 0
+    end
     assert all_zeros
   end
 
   def test_all_gone
-    skip
     words = %w(gone gone gone gone gone gone gone)
-    # write code here
+    all_gone = words.all? do |word|
+      word == 'gone'
+    end
     assert all_gone
   end
 
   def test_not_all_gone
-    skip
     words = %w(gone gone gone gone gone gone gone yepp)
-    # write code here
+    all_gone = words.all? do |word|
+      word == 'gone'
+    end
     refute all_gone
   end
 
   def test_all_empty
-    skip
     words = ["", "", "", "", ""]
-    # write code here
+    all_empty = words.all? do |word|
+      word == ''
+    end
     assert all_empty
   end
 
   def test_not_all_empty
-    skip
     words = ["full", "", "", "", "", ""]
-    # write code here
+    all_empty = words.all? do |word|
+      word == ''
+    end
     refute all_empty
   end
 
   def test_all_uppercase
-    skip
     words = %w(DOUGHNUT CASH MAIN bOWl SMACK SAND)
-    # write code here
+    all_uppercase = words.all? do |word|
+      word == word.upcase 
+    end
     refute all_uppercase
   end
 
   def test_all_lies
-    skip
     lies = [false, false, false, false]
-    # write code here
+    all_false = lies.all? do |lie|
+      lie == false
+    end
     assert all_false
   end
 

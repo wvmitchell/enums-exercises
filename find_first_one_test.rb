@@ -18,9 +18,8 @@ class FindFirstOneTest < Minitest::Test
 
     things = [thing1, thing2, thing3, thing4, thing5]
 
-    found = nil
-    things.each do |thing|
-      # write code here
+    found = things.find do |thing|
+      thing.weird?
     end
     assert_equal thing3.object_id, found.object_id
   end
@@ -32,7 +31,6 @@ class FindFirstOneTest < Minitest::Test
   end
 
   def test_first_pink_unicorn
-    skip
     unicorn1 = Unicorn.new('white')
     unicorn2 = Unicorn.new('sparkly')
     unicorn3 = Unicorn.new('purple')
@@ -41,7 +39,9 @@ class FindFirstOneTest < Minitest::Test
 
     unicorns = [unicorn1, unicorn2, unicorn3, unicorn4, unicorn5]
 
-    # write code here
+    found = unicorns.find do |unicorn|
+      unicorn.pink?
+    end
 
     assert_equal unicorn4.object_id, found.object_id
   end
@@ -53,7 +53,6 @@ class FindFirstOneTest < Minitest::Test
   end
 
   def test_first_roving_gnome
-    skip
     gnome1 = Gnome.new('forest')
     gnome2 = Gnome.new('roving')
     gnome3 = Gnome.new('snorkeling')
@@ -62,7 +61,9 @@ class FindFirstOneTest < Minitest::Test
 
     gnomes = [gnome1, gnome2, gnome3, gnome4, gnome5]
 
-    # write code here
+    found = gnomes.find do |gnome|
+      gnome.roving?
+    end
 
     assert_equal gnome2.object_id, found.object_id
 
@@ -75,7 +76,6 @@ class FindFirstOneTest < Minitest::Test
   end
 
   def test_first_giant_squid
-    skip
     squid1 = Squid.new('tiny')
     squid2 = Squid.new('inky')
     squid3 = Squid.new('giant')
@@ -84,7 +84,9 @@ class FindFirstOneTest < Minitest::Test
 
     squiddies = [squid1, squid2, squid3, squid4, squid5]
 
-    # write code here
+    found = squiddies.find do |squid|
+      squid.giant?
+    end
 
     assert_equal squid3.object_id, found.object_id
   end
