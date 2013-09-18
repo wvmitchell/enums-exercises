@@ -5,52 +5,57 @@ require 'minitest/pride'
 class AreThereAnyTest < Minitest::Test
   def test_has_a_zero
     numbers = [2, 9, 3, 1, 0]
-    has_zero = false
-    numbers.each do |number|
-      # write code here
+    has_zero = numbers.any? do |number|
+      number == 0
     end
     assert has_zero
   end
 
   def test_has_zeros
-    skip
     numbers = [3, 1, 0, 7, 9, 0]
-    # write code here
+    has_zero = numbers.any? do |number| 
+      number == 0
+    end
     assert has_zero
   end
 
   def test_does_not_have_zero
-    skip
     numbers = [3, 1, 3, 2, 4, 9, 8]
-    # write code here
+    has_zero = numbers.any? do |number|
+      number == 0
+    end
     refute has_zero
   end
 
   def test_no_alice
-    skip
     names = %w(chuck charlene cory chris carl)
-    # write code here
+    has_alice = names.any? do |name|
+      name == 'alice'
+    end
     refute has_alice
   end
 
   def test_has_alice
-    skip
     names = %w(bill bob burton alice brandon)
-    # write code here
+    has_alice = names.any? do |name| 'alice'
+      name == 'alice'
+    end
     assert has_alice
   end
 
   def test_has_full_name
-    skip
     names = ['will', 'tom', 'bob jones', 'sam' 'linda']
-    # write code here
+    test_has_full_name = names.any? do |name|
+      name.match(/\w+ \w+/)
+    end
     assert test_has_full_name
   end
 
   def test_no_monkeys
-    skip
     animals = %w(elephants hippos jaguars pythons)
-    # write code here
+    has_monkeys = animals.any? do |animal|
+      animal == 'monkey'
+    end
     refute has_monkeys
   end
 end
